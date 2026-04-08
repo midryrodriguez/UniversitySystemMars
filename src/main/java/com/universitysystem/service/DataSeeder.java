@@ -19,11 +19,8 @@ public class DataSeeder {
         List<Student> students = new ArrayList<>();
         List<CourseClass> classes = new ArrayList<>();
 
-        // Full-time teachers
         Teacher teacher1 = new FullTimeTeacher("Carlos Gomez", 1200, 5);
         Teacher teacher2 = new FullTimeTeacher("Laura Martinez", 1500, 8);
-
-        // Part-time teachers
         Teacher teacher3 = new PartTimeTeacher("Andres Lopez", 80, 20);
         Teacher teacher4 = new PartTimeTeacher("Sofia Ramirez", 90, 18);
 
@@ -32,7 +29,6 @@ public class DataSeeder {
         teachers.add(teacher3);
         teachers.add(teacher4);
 
-        // Students
         Student student1 = new Student("Ana Torres", 101, 20);
         Student student2 = new Student("Juan Perez", 102, 21);
         Student student3 = new Student("Maria Castro", 103, 19);
@@ -47,13 +43,12 @@ public class DataSeeder {
         students.add(student5);
         students.add(student6);
 
-        // Classes
         CourseClass class1 = new CourseClass(
                 "Mathematics",
                 "Room 101",
                 teacher1,
-                 new ArrayList<>(Arrays.asList(student1, student2, student3))
-                 );
+                new ArrayList<>(Arrays.asList(student1, student2, student3))
+        );
 
         CourseClass class2 = new CourseClass(
                 "Physics",

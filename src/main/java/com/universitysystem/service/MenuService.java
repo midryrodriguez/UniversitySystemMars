@@ -3,9 +3,9 @@ package com.universitysystem.service;
 import com.universitysystem.model.CourseClass;
 import com.universitysystem.model.FullTimeTeacher;
 import com.universitysystem.model.PartTimeTeacher;
+import com.universitysystem.model.Student;
 import com.universitysystem.model.Teacher;
 import com.universitysystem.model.University;
-import com.universitysystem.model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +15,12 @@ public class MenuService {
 
     private University university;
     private Scanner scanner;
+    private DataPersistenceService dataPersistenceService;
 
     public MenuService(University university) {
         this.university = university;
         this.scanner = new Scanner(System.in);
+        this.dataPersistenceService = new DataPersistenceService();
     }
 
     public void start() {
@@ -64,14 +66,13 @@ public class MenuService {
         System.out.println(" ");
         System.out.println("c. Create new student and add to a class");
         System.out.println(" ");
-        System.out.println("d. Create  new class");
+        System.out.println("d. Create new class");
         System.out.println(" ");
-        System.out.println("e. find classes by student ID");
+        System.out.println("e. Find classes by student ID");
         System.out.println(" ");
         System.out.println("f. Exit");
         System.out.println(" ");
         System.out.print("Choose an option: ");
-        System.out.println("===================================");
     }
 
     private void printAllTeachers() {
@@ -93,8 +94,8 @@ public class MenuService {
             System.out.println("-------------------------");
         }
     }
-    private void printAllClasses() {
 
+    private void printAllClasses() {
         System.out.println("===== CLASSES =====");
 
         int index = 1;
@@ -118,7 +119,7 @@ public class MenuService {
 
             System.out.println("Students:");
 
-            for (var student : selectedClass.getStudents()) {
+            for (Student student : selectedClass.getStudents()) {
                 System.out.println("- " + student.getName() + " (ID: " + student.getId() + ")");
             }
 
@@ -139,10 +140,6 @@ public class MenuService {
         System.out.print("Enter student age: ");
         int age = Integer.parseInt(scanner.nextLine());
 
-        Student newStudent = new Student(name, id, age);
-
-        university.getStudents().add(newStudent);
-
         System.out.println("Select a class to add the student:");
 
         for (int i = 0; i < university.getClasses().size(); i++) {
@@ -153,8 +150,14 @@ public class MenuService {
         int classIndex = Integer.parseInt(scanner.nextLine()) - 1;
 
         if (classIndex >= 0 && classIndex < university.getClasses().size()) {
+            Student newStudent = new Student(name, id, age);
+
+            university.getStudents().add(newStudent);
+
             CourseClass selectedClass = university.getClasses().get(classIndex);
             selectedClass.getStudents().add(newStudent);
+
+            dataPersistenceService.saveUniversity(university);
 
             System.out.println("Student created and added successfully to " + selectedClass.getName());
         } else {
@@ -163,21 +166,16 @@ public class MenuService {
     }
 
     private void findClassesByStudentId() {
-
         System.out.print("Enter student ID: ");
         int studentId = Integer.parseInt(scanner.nextLine());
 
         boolean found = false;
 
         for (CourseClass courseClass : university.getClasses()) {
-
             for (Student student : courseClass.getStudents()) {
-
                 if (student.getId() == studentId) {
-
                     if (!found) {
-                        System.out.println("Student is enrolled in: ");
-
+                        System.out.println("Student is enrolled in:");
                     }
 
                     System.out.println("- " + courseClass.getName());
@@ -243,7 +241,8 @@ public class MenuService {
         CourseClass newClass = new CourseClass(className, classroom, selectedTeacher, selectedStudents);
         university.getClasses().add(newClass);
 
+        dataPersistenceService.saveUniversity(university);
+
         System.out.println("New class created successfully.");
     }
-
 }

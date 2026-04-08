@@ -1,10 +1,10 @@
 package com.universitysystem.model;
 
-public class FullTimeTeacher extends Teacher{
+public class FullTimeTeacher extends Teacher {
 
     private int expYears;
 
-    public FullTimeTeacher (String name, double baseSalary, int expYears) {
+    public FullTimeTeacher(String name, double baseSalary, int expYears) {
         super(name, baseSalary);
         this.expYears = expYears;
     }
@@ -15,6 +15,6 @@ public class FullTimeTeacher extends Teacher{
 
     @Override
     public double calculateSalary() {
-        return baseSalary * (1.10 * expYears);
+        return baseSalary * (1 + 0.10 * expYears);
     }
 }
