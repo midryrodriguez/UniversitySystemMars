@@ -1,0 +1,114 @@
+===== UNIVERSITY DATA =====
+
+===== TEACHERS =====
+Name: Carlos Gomez
+Type: Full Time Teacher
+Base Salary: 1200.0
+Experience Years: 5
+Calculated Salary: 1800.0
+-------------------------
+Name: Laura Martinez
+Type: Full Time Teacher
+Base Salary: 1500.0
+Experience Years: 8
+Calculated Salary: 2700.0
+-------------------------
+Name: Andres Lopez
+Type: Part Time Teacher
+Base Salary: 80.0
+Active Hours Per Week: 20
+Calculated Salary: 1600.0
+-------------------------
+Name: Sofia Ramirez
+Type: Part Time Teacher
+Base Salary: 90.0
+Active Hours Per Week: 18
+Calculated Salary: 1620.0
+-------------------------
+
+===== STUDENTS =====
+Name: Ana Torres
+ID: 101
+Age: 20
+-------------------------
+Name: Juan Perez
+ID: 102
+Age: 21
+-------------------------
+Name: Maria Castro
+ID: 103
+Age: 19
+-------------------------
+Name: Luis Herrera
+ID: 104
+Age: 22
+-------------------------
+Name: Camila Rojas
+ID: 105
+Age: 20
+-------------------------
+Name: David Moreno
+ID: 106
+Age: 23
+-------------------------
+Name: Midry Rodriguez
+ID: 66
+Age: 24
+-------------------------
+Name: Daniel
+ID: 13
+Age: 31
+-------------------------
+
+===== CLASSES =====
+Class Name: Mathematics
+Classroom: Room 101
+Teacher: Carlos Gomez
+Students:
+- Ana Torres (ID: 101)
+- Juan Perez (ID: 102)
+- Maria Castro (ID: 103)
+-------------------------
+Class Name: Physics
+Classroom: Room 102
+Teacher: Laura Martinez
+Students:
+- Juan Perez (ID: 102)
+- Luis Herrera (ID: 104)
+- Camila Rojas (ID: 105)
+-------------------------
+Class Name: Programming
+Classroom: Lab 201
+Teacher: Andres Lopez
+Students:
+- Ana Torres (ID: 101)
+- Camila Rojas (ID: 105)
+- David Moreno (ID: 106)
+- Daniel (ID: 13)
+-------------------------
+Class Name: English
+Classroom: Room 103
+Teacher: Sofia Ramirez
+Students:
+- Maria Castro (ID: 103)
+- Luis Herrera (ID: 104)
+- David Moreno (ID: 106)
+-------------------------
+Class Name: Music
+Classroom: 666
+Teacher: Laura Martinez
+Students:
+- Ana Torres (ID: 101)
+- Juan Perez (ID: 102)
+- Maria Castro (ID: 103)
+- Midry Rodriguez (ID: 66)
+-------------------------
+Class Name: Historia
+Classroom: 202
+Teacher: Sofia Ramirez
+Students:
+- Ana Torres (ID: 101)
+- Juan Perez (ID: 102)
+- Camila Rojas (ID: 105)
+- Midry Rodriguez (ID: 66)
+-------------------------
