@@ -44,7 +44,7 @@ public class MenuService {
                     createNewClass();
                     break;
                 case "e":
-                    findClassesByStudentId();
+                    findClassesByStudentCode();
                     break;
                 case "f":
                     System.out.println("Exiting program...");
@@ -68,7 +68,7 @@ public class MenuService {
         System.out.println(" ");
         System.out.println("d. Create new class");
         System.out.println(" ");
-        System.out.println("e. Find classes by student ID");
+        System.out.println("e. Find classes by student code");
         System.out.println(" ");
         System.out.println("f. Exit");
         System.out.println(" ");
@@ -120,7 +120,7 @@ public class MenuService {
             System.out.println("Students:");
 
             for (Student student : selectedClass.getStudents()) {
-                System.out.println("- " + student.getName() + " (ID: " + student.getId() + ")");
+                System.out.println("- " + student.getName() + " (Code: " + student.getStudentCode() + ")");
             }
 
         } else {
@@ -134,8 +134,8 @@ public class MenuService {
         System.out.print("Enter student name: ");
         String name = scanner.nextLine();
 
-        System.out.print("Enter student ID: ");
-        int id = Integer.parseInt(scanner.nextLine());
+        System.out.print("Enter student code: ");
+        int studentCode = Integer.parseInt(scanner.nextLine());
 
         System.out.print("Enter student age: ");
         int age = Integer.parseInt(scanner.nextLine());
@@ -150,7 +150,8 @@ public class MenuService {
         int classIndex = Integer.parseInt(scanner.nextLine()) - 1;
 
         if (classIndex >= 0 && classIndex < university.getClasses().size()) {
-            Student newStudent = new Student(name, id, age);
+
+            Student newStudent = new Student(name, studentCode, age);
 
             university.getStudents().add(newStudent);
 
@@ -165,15 +166,15 @@ public class MenuService {
         }
     }
 
-    private void findClassesByStudentId() {
-        System.out.print("Enter student ID: ");
-        int studentId = Integer.parseInt(scanner.nextLine());
+    private void findClassesByStudentCode() {
+        System.out.print("Enter student code: ");
+        int studentCode = Integer.parseInt(scanner.nextLine());
 
         boolean found = false;
 
         for (CourseClass courseClass : university.getClasses()) {
             for (Student student : courseClass.getStudents()) {
-                if (student.getId() == studentId) {
+                if (student.getStudentCode() == studentCode) {
                     if (!found) {
                         System.out.println("Student is enrolled in:");
                     }
@@ -218,20 +219,20 @@ public class MenuService {
 
         System.out.println("Available students:");
         for (Student student : university.getStudents()) {
-            System.out.println("ID: " + student.getId() + " - " + student.getName());
+            System.out.println("Code: " + student.getStudentCode() + " - " + student.getName());
         }
 
-        System.out.println("Enter student IDs separated by commas:");
+        System.out.println("Enter student codes separated by commas:");
         String input = scanner.nextLine();
 
-        String[] studentIds = input.split(",");
+        String[] studentCodes = input.split(",");
         List<Student> selectedStudents = new ArrayList<>();
 
-        for (String idText : studentIds) {
-            int studentId = Integer.parseInt(idText.trim());
+        for (String codeText : studentCodes) {
+            int code = Integer.parseInt(codeText.trim());
 
             for (Student student : university.getStudents()) {
-                if (student.getId() == studentId) {
+                if (student.getStudentCode() == code) {
                     selectedStudents.add(student);
                     break;
                 }

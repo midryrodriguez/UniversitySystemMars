@@ -9,6 +9,11 @@ public class PartTimeTeacher extends Teacher {
         this.activeHoursPerWeek = activeHoursPerWeek;
     }
 
+    public PartTimeTeacher(int teacherId, String name, double baseSalary, int activeHoursPerWeek) {
+        super(teacherId, name, baseSalary);
+        this.activeHoursPerWeek = activeHoursPerWeek;
+    }
+
     public int getActiveHoursPerWeek() {
         return activeHoursPerWeek;
     }

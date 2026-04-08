@@ -9,6 +9,11 @@ public class FullTimeTeacher extends Teacher {
         this.expYears = expYears;
     }
 
+    public FullTimeTeacher(int teacherId, String name, double baseSalary, int expYears) {
+        super(teacherId, name, baseSalary);
+        this.expYears = expYears;
+    }
+
     public int getExpYears() {
         return expYears;
     }

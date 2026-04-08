@@ -2,17 +2,33 @@ package com.universitysystem.model;
 
 public class Student extends Person {
 
-    private int id;
+    private int studentId;
+    private int studentCode;
     private int age;
 
-    public Student(String name, int id, int age) {
+    public Student(String name, int studentCode, int age) {
         super(name);
-        this.id = id;
+        this.studentCode = studentCode;
         this.age = age;
     }
 
-    public int getId() {
-        return id;
+    public Student(int studentId, String name, int studentCode, int age) {
+        super(name);
+        this.studentId = studentId;
+        this.studentCode = studentCode;
+        this.age = age;
+    }
+
+    public int getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(int studentId) {
+        this.studentId = studentId;
+    }
+
+    public int getStudentCode() {
+        return studentCode;
     }
 
     public int getAge() {
